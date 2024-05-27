@@ -9,7 +9,6 @@ include:
   - remnux.tools.cyberchef
   - remnux.tools.cfr
   - remnux.tools.cutter
-  - remnux.tools.remnux-cli
   - remnux.tools.fakedns
   - remnux.tools.shellcode2exe-bat
   - remnux.tools.bytehist
@@ -25,6 +24,7 @@ include:
   - remnux.tools.jadx
   - remnux.tools.detect-it-easy
   - remnux.tools.capa
+  - remnux.tools.docker-compose
 
 remnux-tools:
   test.nop:
@@ -39,7 +39,6 @@ remnux-tools:
       - sls: remnux.tools.cyberchef
       - sls: remnux.tools.cfr
       - sls: remnux.tools.cutter
-      - sls: remnux.tools.remnux-cli
       - sls: remnux.tools.fakedns
       - sls: remnux.tools.shellcode2exe-bat
       - sls: remnux.tools.bytehist
@@ -55,3 +54,4 @@ remnux-tools:
       - sls: remnux.tools.jadx
       - sls: remnux.tools.detect-it-easy
       - sls: remnux.tools.capa
+      - sls: remnux.tools.docker-compose

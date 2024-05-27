@@ -1,10 +1,12 @@
 include:
   - remnux.python3-packages.pip
-  - remnux.python3-packages.setuptools-rust
+  - remnux.packages.libemu
 
-docker-compose:
+remnux-python3-packages-pylibemu:
   pip.installed:
+    - name: pylibemu
     - bin_env: /usr/bin/python3
+    - upgrade: True
     - require:
       - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.setuptools-rust
+      - sls: remnux.packages.libemu

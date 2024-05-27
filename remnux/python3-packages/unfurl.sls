@@ -11,19 +11,12 @@ include:
   - remnux.python3-packages.pip
   - remnux.packages.git
 
-remnux-python3-packages-unfurl-requirements:
-  pip.installed:
-    - bin_env: /usr/bin/python3
-    - requirements: https://raw.githubusercontent.com/obsidianforensics/unfurl/master/requirements.txt
-    - require:
-      - sls: remnux.python3-packages.pip
-      - sls: remnux.python3-packages.protobuf
-
 remnux-python3-packages-unfurl:
   pip.installed:
     - bin_env: /usr/bin/python3
-    - name: git+https://github.com/obsidianforensics/unfurl.git@master
+    - name: dfir-unfurl
+    - ignore_installed: True
     - require:
       - sls: remnux.python3-packages.pip
       - sls: remnux.packages.git
-      - pip: remnux-python3-packages-unfurl-requirements
+      - sls: remnux.python3-packages.protobuf

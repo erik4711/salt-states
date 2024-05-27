@@ -11,11 +11,14 @@ include:
   - remnux.packages.yara
 
 remnux-tools-yara-rules:
-  git.cloned:
+  git.latest:
     - name: https://github.com/Yara-Rules/rules.git
     - target: /usr/local/yara-rules
     - user: root
     - branch: master
+    - force_fetch: True
+    - force_reset: True
+    - force_checkout: True
     - require:
       - sls: remnux.packages.yara
 
@@ -27,4 +30,4 @@ remnux-tools-yara-rules-wrapper:
       - git: remnux-tools-yara-rules
     - contents:
       - '#!/bin/bash'
-      - yara -w /usr/local/yara-rules/index.yar ${*}
+      - yara -w /usr/local/yara-rules/index.yar "${*}"

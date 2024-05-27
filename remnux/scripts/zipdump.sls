@@ -11,24 +11,24 @@ include:
 
 remnux-scripts-zipdump-source:
   file.managed:
-    - name: /usr/local/src/remnux/files/zipdump_v0_0_21.zip
-    - source: https://didierstevens.com/files/software/zipdump_v0_0_21.zip
-    - source_hash: 48653BB2B3009241C4C536BF64D16A6DFDA4B66D6658EC6BCFA79647AE4D5FA8
+    - name: /usr/local/src/remnux/files/zipdump_v0_0_29.zip
+    - source: https://didierstevens.com/files/software/zipdump_v0_0_29.zip
+    - source_hash: 9D89DCAF531621E33A0A36D1EA519A62F1004A762C0789C857976033A32E7F8A
     - makedirs: True
     - require:
       - sls: remnux.packages.python3
 
 remnux-scripts-zipdump-archive:
   archive.extracted:
-    - name: /usr/local/src/remnux/zipdump_v0_0_21
-    - source: /usr/local/src/remnux/files/zipdump_v0_0_21.zip
+    - name: /usr/local/src/remnux/zipdump_v0_0_29
+    - source: /usr/local/src/remnux/files/zipdump_v0_0_29.zip
     - enforce_toplevel: False
     - watch:
       - file: remnux-scripts-zipdump-source
 
 remnux-scripts-zipdump-shebang:
   file.replace:
-    - name: /usr/local/src/remnux/zipdump_v0_0_21/zipdump.py
+    - name: /usr/local/src/remnux/zipdump_v0_0_29/zipdump.py
     - pattern: '^#!/usr/bin/env python$'
     - repl: '#!/usr/bin/env python3'
     - prepend_if_not_found: False
@@ -40,7 +40,7 @@ remnux-scripts-zipdump-shebang:
 remnux-scripts-zipdump-binary:
   file.managed:
     - name: /usr/local/bin/zipdump.py
-    - source: /usr/local/src/remnux/zipdump_v0_0_21/zipdump.py
+    - source: /usr/local/src/remnux/zipdump_v0_0_29/zipdump.py
     - mode: 755
     - watch:
       - file: remnux-scripts-zipdump-shebang

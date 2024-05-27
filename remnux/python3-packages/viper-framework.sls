@@ -4,7 +4,7 @@
 # Category: Gather and Analyze Data
 # Author: Claudio Guarnieri: https://nex.sx
 # License: BSD 3-Clause License: https://github.com/viper-framework/viper/blob/master/LICENSE
-# Notes: Viper is temporarily excluded from the REMnux distro due to depdendency issues. Instead, use the remnux/viper Docker image: https://docs.remnux.org/run-tools-in-containers/remnux-containers#viper-binary-analysis-and-management-framework
+# Notes: Viper is temporarily excluded from the REMnux distro due to dependency issues. Instead, use the remnux/viper Docker image: https://docs.remnux.org/run-tools-in-containers/remnux-containers#viper-binary-analysis-and-management-framework
 
 {%- if grains['oscodename'] == "bionic" %}
   {%- set python3_version="python3.6" %}
@@ -101,10 +101,13 @@ remnux-python3-packages-viper-directory:
       - user: remnux-user-{{ user }}
 
 remnux-python3-packages-viper-modules-git:
-  git.cloned:
+  git.latest:
     - name: https://github.com/viper-framework/viper-modules.git
     - target: {{ home }}/.viper/modules
     - user: {{ user }}
+    - force_reset: True
+    - force_checkout: True
+    - force_fetch: True
     - require:
       - file: remnux-python3-packages-viper-directory
 

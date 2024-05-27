@@ -44,6 +44,10 @@ include:
   - remnux.scripts.decode-vbe
   - remnux.scripts.cs-decrypt-metadata
   - remnux.scripts.cs-extract-key
+  - remnux.scripts.file-magic
+  - remnux.scripts.myjson-filter
+  - remnux.scripts.strings
+  - remnux.scripts.sortcanon
 
 remnux-scripts:
   test.nop:
@@ -93,3 +97,7 @@ remnux-scripts:
       - sls: remnux.scripts.decode-vbe
       - sls: remnux.scripts.cs-decrypt-metadata
       - sls: remnux.scripts.cs-extract-key
+      - sls: remnux.scripts.file-magic
+      - sls: remnux.scripts.myjson-filter
+      - sls: remnux.scripts.strings
+      - sls: remnux.scripts.sortcanon

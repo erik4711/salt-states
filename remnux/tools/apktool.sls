@@ -6,6 +6,9 @@
 # License: Apache License 2.0: https://github.com/iBotPeaches/Apktool/blob/master/LICENSE
 # Notes: 
 
+{% set hash = '7956eb04194300ce0d0a84ad18771eebc94b89fb8d1ddcce8ea4c056818646f4' %}
+{% set version = '2.9.3' %}
+
 include:
   - remnux.packages.default-jre
 
@@ -19,9 +22,9 @@ remnux-tools-apktool-directory:
 
 remnux-tools-apktool-source:
   file.managed:
-    - name: /usr/local/apktool/apktool_2.4.1.jar
-    - source: https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar
-    - source_hash: sha256=bdeb66211d1dc1c71f138003ce35f6d0cd19af6f8de7ffbdd5b118d02d825a52
+    - name: /usr/local/apktool/apktool_{{ version }}.jar
+    - source: https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_{{ version }}.jar
+    - source_hash: sha256={{ hash }}
     - mode: 755
     - watch:
       - file: remnux-tools-apktool-directory
@@ -36,4 +39,4 @@ remnux-tools-apktool-wrapper:
       - file: remnux-tools-apktool-source
     - contents:
       - '#!/bin/bash'
-      - java -jar /usr/local/apktool/apktool_2.4.1.jar ${*}
+      - java -jar /usr/local/apktool/apktool_{{ version }}.jar ${*}

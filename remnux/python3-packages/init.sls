@@ -1,7 +1,10 @@
 include:
   - remnux.python3-packages.pip
+  - remnux.python3-packages.setuptools
+  - remnux.python3-packages.wheel
+  - remnux.python3-packages.requests
+  - remnux.python3-packages.cryptography
   - remnux.python3-packages.androguard
-  - remnux.python3-packages.docker-compose
   - remnux.python3-packages.ioc-parser
   - remnux.python3-packages.ipwhois
   - remnux.python3-packages.jsbeautifier
@@ -37,11 +40,8 @@ include:
   - remnux.python3-packages.msoffcrypto-tool
   - remnux.python3-packages.qiling
   - remnux.python3-packages.pe-tree
-  - remnux.python3-packages.wheel
-  - remnux.python3-packages.setuptools
   - remnux.python3-packages.hachoir
   - remnux.python3-packages.msg-extractor
-  - remnux.python3-packages.upgrade
   - remnux.python3-packages.name-that-hash
   - remnux.python3-packages.malchive
   - remnux.python3-packages.vivisect
@@ -49,13 +49,23 @@ include:
   - remnux.python3-packages.mail-parser
   - remnux.python3-packages.csce
   - remnux.python3-packages.jinja2
+  - remnux.python3-packages.dnfile
+  - remnux.python3-packages.dotnetfile
+  - remnux.python3-packages.debloat
+  - remnux.python3-packages.pylibemu
+  - remnux.python3-packages.peepdf-3
+  - remnux.python3-packages.dissect
+  - remnux.python3-packages.magika
 
 remnux-python3-packages:
   test.nop:
     - require:
       - sls: remnux.python3-packages.pip
+      - sls: remnux.python3-packages.setuptools
+      - sls: remnux.python3-packages.wheel
+      - sls: remnux.python3-packages.requests
+      - sls: remnux.python3-packages.cryptography
       - sls: remnux.python3-packages.androguard
-      - sls: remnux.python3-packages.docker-compose
       - sls: remnux.python3-packages.ioc-parser
       - sls: remnux.python3-packages.ipwhois
       - sls: remnux.python3-packages.jsbeautifier
@@ -91,11 +101,8 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.msoffcrypto-tool
       - sls: remnux.python3-packages.qiling
       - sls: remnux.python3-packages.pe-tree
-      - sls: remnux.python3-packages.wheel
-      - sls: remnux.python3-packages.setuptools
       - sls: remnux.python3-packages.hachoir
       - sls: remnux.python3-packages.msg-extractor
-      - sls: remnux.python3-packages.upgrade
       - sls: remnux.python3-packages.name-that-hash
       - sls: remnux.python3-packages.malchive
       - sls: remnux.python3-packages.vivisect
@@ -103,3 +110,10 @@ remnux-python3-packages:
       - sls: remnux.python3-packages.mail-parser
       - sls: remnux.python3-packages.csce
       - sls: remnux.python3-packages.jinja2
+      - sls: remnux.python3-packages.dnfile
+      - sls: remnux.python3-packages.dotnetfile
+      - sls: remnux.python3-packages.debloat
+      - sls: remnux.python3-packages.pylibemu
+      - sls: remnux.python3-packages.peepdf-3
+      - sls: remnux.python3-packages.dissect
+      - sls: remnux.python3-packages.magika
